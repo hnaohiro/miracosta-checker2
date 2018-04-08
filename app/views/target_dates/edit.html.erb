@@ -1,0 +1,13 @@
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Editing Target Date</h3>
+    <div class="pull-right box-tools">
+      <%= link_to @target_date, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="box-body">
+    <%= render 'form', target_date: @target_date %> 
+  </div>
+</div>

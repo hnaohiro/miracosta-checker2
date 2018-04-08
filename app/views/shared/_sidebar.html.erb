@@ -1,0 +1,22 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">HEADER</li>
+      <li>
+          <%= link_to reservations_path do %>
+            <i class="fa fa-calendar-check-o"></i> <span>Reservation</span>
+          <% end %>
+        </li>
+      <li>
+        <%= link_to rooms_path do %>
+          <i class="fa fa-building-o"></i> <span>Room</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to target_dates_path do %>
+          <i class="fa fa-calendar"></i> <span>Target Date</span>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+</aside>

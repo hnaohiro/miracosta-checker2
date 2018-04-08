@@ -1,0 +1,9 @@
+/*
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require admin-lte/dist/css/AdminLTE.min
+ *= require admin-lte/dist/css/skins/skin-blue.min
+ *= require_tree .
+ *= require_self
+ */
+
+

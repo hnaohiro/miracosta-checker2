@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @target_date.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @target_date.month %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @target_date.day %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @target_date.enabled %>
+</p>
+
+<%= link_to 'Edit', edit_target_date_path(@target_date) %> |
+<%= link_to 'Back', target_dates_path %>

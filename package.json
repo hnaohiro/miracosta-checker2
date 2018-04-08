@@ -1,0 +1,7 @@
+{
+  "name": "miracosta-checker2",
+  "private": true,
+  "dependencies": {
+    "admin-lte": "^2.4.3"
+  }
+}
