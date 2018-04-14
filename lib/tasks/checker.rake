@@ -32,8 +32,8 @@ class Checker
       childNum: 0,
       roomsNum: 1,
       childAgeBedInform: 0,
-      stockQueryType: 3,
-      rrc3005ProcessingType: 'update'
+      #stockQueryType: 3,
+      #rrc3005ProcessingType: 'update'
     }
   end
 
