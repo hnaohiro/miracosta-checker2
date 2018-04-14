@@ -52,8 +52,10 @@ namespace :checker do
     rooms = Room.where(enabled: true)
     target_dates = TargetDate.where(enabled: true)
 
-    reservation_details = rooms.zip(target_dates).map do |room, target_date|
-      Checker.new.run(room, target_date)
+    rooms.each do |room|
+      target_dates.each do |target_date|
+        Checker.new.run(room, target_date)
+      end
     end
 
     Reservation.create(reservation_details: reservation_details)
