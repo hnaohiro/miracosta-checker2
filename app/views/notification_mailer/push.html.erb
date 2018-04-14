@@ -1,0 +1,28 @@
+<table border="1" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>Room</th>
+      <th>Date</th>
+      <th>Reservable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservation.reservation_details.each do |detail| %>
+      <tr>
+        <td><%= detail.room.name %></td>
+        <td><%= detail.target_date.date %></td>
+        <td>
+          <% if detail.reservable %>
+            ○
+          <% else %>
+            ×
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<a href="https://miracosta-checker2.herokuapp.com">https://miracosta-checker2.herokuapp.com</a>
