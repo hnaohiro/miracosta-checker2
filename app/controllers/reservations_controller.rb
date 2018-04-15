@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery except: :create
 
   # GET /reservations
   # GET /reservations.json
@@ -24,15 +25,29 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
-
     respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
-      else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+      format.html do
+        @reservation = Reservation.new(reservation_params)
+
+        if @reservation.save
+          redirect_to @reservation, notice: 'Reservation was successfully created.'
+        else
+          render :new 
+        end
+      end
+
+      format.json do
+        json_request = JSON.parse(request.body.read)
+        reservation_details = json_request['reservation']['reservation_details'].map do |data|
+          ReservationDetail.new(room_id: data['room_id'], target_date_id: data['target_date_id'], reservable: data['reservable'])
+        end
+        @reservation = Reservation.new(reservation_details: reservation_details)
+
+        if @reservation.save
+          render :show, status: :created, location: @reservation
+        else
+          render json: @reservation.errors, status: :unprocessable_entity
+        end
       end
     end
   end
