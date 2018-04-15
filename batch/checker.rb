@@ -143,7 +143,7 @@ def main
   reservation_details = rooms.map do |room|
     target_dates.map do |target_date|
       checker.run(room, target_date).tap do |reservation_detail|
-        reservable = reservation_detail['reservable'] ? '○' : '×'
+        reservable = reservation_detail[:reservable] ? '○' : '×'
         puts "[#{reservable}] #{room['name']} (#{target_date['year']}/#{target_date['month']}/#{target_date['day']})"
       end
     end
