@@ -10,8 +10,8 @@ class Reservation < ApplicationRecord
   end
 
   def exists_reserable_room
-    new_reservables = Reservation.first.reservation_details.select(&:reservable).map(&:id)
-    old_reservables = (Reservation.second&.reservation_details || []).select(&:reservable).map(&:id)
+    new_reservables = Reservation.first.reservation_details.select(&:reservable).map(&:room_id)
+    old_reservables = (Reservation.second&.reservation_details || []).select(&:reservable).map(&:room_id)
     (new_reservables - old_reservables).present?
   end
 
