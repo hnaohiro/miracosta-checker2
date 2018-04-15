@@ -31,12 +31,13 @@ class HttpClient
 
   private
 
-  def retry_on_error(times: 3)
+  def retry_on_error(times: 10)
     try = 0
     begin
       try += 1
       yield
     rescue
+      sleep 1
       retry if try < times
       raise
     end
