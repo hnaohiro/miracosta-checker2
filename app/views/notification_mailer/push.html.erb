@@ -13,7 +13,7 @@
         <td><%= detail.target_date.date %></td>
         <td>
           <% if detail.reservable %>
-            ○
+            <%= link_to '○', detail.reservable_link %>
           <% else %>
             ×
           <% end %>
