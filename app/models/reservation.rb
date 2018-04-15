@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-  has_many :reservation_details
+  has_many :reservation_details, dependent: :destroy
 
   default_scope { order('id DESC') }
 
